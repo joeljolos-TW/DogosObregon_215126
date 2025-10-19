@@ -4,17 +4,8 @@
  */
 package Entities;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -24,6 +15,18 @@ import java.util.Set;
  * @author Laboratorios
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Pedido.showAll"
+                , query = "SELECT p FROM Pedido p"),
+        @NamedQuery(name = "Pedido.showByPayMethod"
+                , query = "SELECT p FROM Pedido p WHERE p.metodoPago = :metodoPago"),
+        @NamedQuery(name = "Pedido.showByDate"
+                , query = "SELECT p FROM Pedido p WHERE p.fecha >= :fecha"),
+        @NamedQuery(name = "Pedido.showByFechaASC"
+                , query = "SELECT p FROM Pedido p ORDER BY fecha ASC"),
+        @NamedQuery(name = "Pedido.showByFechaDESC"
+                , query = "SELECT p FROM Pedido p ORDER BY fecha DESC")
+})
 public class Pedido implements Serializable {
 
     private static final long serialVersionUID = 1L;
