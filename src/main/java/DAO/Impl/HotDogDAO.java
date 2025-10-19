@@ -102,7 +102,7 @@ public class HotDogDAO implements IHotDogDAO {
     public List<HotDog> listarHotDogs() {
         em=config.getConnection();
 
-        List<HotDog>dogos=em.createNamedQuery("HotDog.findAll", HotDog.class)
+        List<HotDog>dogos=em.createNamedQuery("HotDog.showAll", HotDog.class)
                 .setMaxResults(100)
                 .getResultList();
         return dogos;
@@ -130,7 +130,7 @@ public class HotDogDAO implements IHotDogDAO {
     @Override
     public List<HotDog> listarHotDogsPorNombreASC() {
 
-        List<HotDog>dogos=em.createNamedQuery("HotDog.findByNameASC", HotDog.class)
+        List<HotDog>dogos=em.createNamedQuery("HotDog.showByNameASC", HotDog.class)
                 .setMaxResults(100)
                 .getResultList();
         return dogos;
@@ -139,7 +139,7 @@ public class HotDogDAO implements IHotDogDAO {
     @Override
     public List<HotDog> listarHotDogsPorNombreDESC() {
         em=config.getConnection();
-        List<HotDog>dogos=em.createNamedQuery("HotDog.findByNameDESC", HotDog.class)
+        List<HotDog>dogos=em.createNamedQuery("HotDog.showByNameDESC", HotDog.class)
                 .setMaxResults(100)
                 .getResultList();
         em.close();

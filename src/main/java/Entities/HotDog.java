@@ -17,15 +17,15 @@ import java.util.Set;
 @Entity
 
 @NamedQueries({
-        @NamedQuery(name = "HotDog.findAll"
+        @NamedQuery(name = "HotDog.showAll"
                 , query = "SELECT h FROM HotDog h"),
         @NamedQuery(name = "HotDog.findByPrices"
                 , query = "SELECT h FROM HotDog h ORDER BY precio ASC"),
         @NamedQuery(name = "HotDog.findByPrice"
                 , query = "SELECT h FROM HotDog h WHERE h.precio >= :precio ORDER BY precio ASC"),
-        @NamedQuery(name = "HotDog.findByNameASC"
+        @NamedQuery(name = "HotDog.showByNameASC"
                 , query = "SELECT h FROM HotDog h ORDER BY nombre ASC"),
-        @NamedQuery(name = "HotDog.findByNameDESC"
+        @NamedQuery(name = "HotDog.showByNameDESC"
                 , query = "SELECT h FROM HotDog h ORDER BY nombre DESC")
 })
 public class HotDog implements Serializable {
