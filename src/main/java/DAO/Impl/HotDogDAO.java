@@ -21,11 +21,16 @@ public class HotDogDAO implements IHotDogDAO {
     public void agregarHotDog(HotDog hotDog) {
         em= config.getConnection();
 
+        Long count = em.createQuery("SELECT COUNT(h) FROM HotDog h WHERE h.nombre = :nombre", Long.class)
+                .setParameter("nombre", hotDog.getNombre())
+                .getSingleResult();
         try{
             em.getTransaction().begin();
-
+            if(count==0) {
                 em.persist(hotDog);
-
+            }else {
+                System.out.println("Ya existe un HotDog con ese nombre: " + hotDog.getNombre());
+            }
 
             em.getTransaction().commit();
 
