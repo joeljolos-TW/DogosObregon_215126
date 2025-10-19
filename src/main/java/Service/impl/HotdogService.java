@@ -18,15 +18,16 @@ public class HotdogService implements IHotdogService {
 
     @Override
     public void agregarHotDog(HotDog hotDog) {
-
-        if(hotDog != null){
+        BigDecimal cero = new BigDecimal(0);
+        if(hotDog != null && hotDog.getPrecio().compareTo(cero)==1){
             iHotDogDAO.agregarHotDog(hotDog);
         }
     }
 
     @Override
     public void actualizarHotDog(HotDog hotDog) {
-        if(hotDog != null){
+        BigDecimal cero = new BigDecimal(0);
+        if(hotDog != null && hotDog.getPrecio().compareTo(cero)==1){
             iHotDogDAO.actualizarHotDog(hotDog);
         }
     }

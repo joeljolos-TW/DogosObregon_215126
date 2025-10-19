@@ -54,7 +54,7 @@ public class HotDog implements Serializable {
 
         this.nombre = nombre;
         this.precio = precio;
-
+        this.iva = precio.multiply(new BigDecimal(0.16));
     }
 
     public Long getId() {
