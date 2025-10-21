@@ -4,16 +4,8 @@
  */
 package Entities;
 
-import jakarta.persistence.CollectionTable;
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
@@ -23,6 +15,12 @@ import java.util.Set;
  * @author Laboratorios
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name="Cliente.showAll"
+                , query = "SELECT c FROM Cliente c"),
+        @NamedQuery(name="Cliente.showByLastName"
+                , query = "SELECT c FROM Cliente c ORDER BY ap_Paterno")
+})
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
